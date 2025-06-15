@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "author": "Fatma Nur",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": -41.55,
+      "left": 99.6,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 52.8,
+      "left": -48.55,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    { "type": "wokwi-led", "id": "led1", "top": -90, "left": -44.2, "attrs": { "color": "red" } },
+    { "type": "wokwi-hx711", "id": "cell1", "top": -7, "left": 261.8, "attrs": {} },
+    {
+      "type": "wokwi-led-bar-graph",
+      "id": "bargraph1",
+      "top": -187.2,
+      "left": 110.4,
+      "attrs": { "color": "lime" }
+    },
+    { "type": "wokwi-ds1307", "id": "rtc1", "top": -139.8, "left": 307.3, "attrs": {} }
+  ],
+  "connections": [
+    [ "led1:C", "pico:GND.2", "green", [ "v0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "pico:GP15", "green", [ "h0", "v18" ] ],
+    [ "pico:GND.1", "cell1:GND", "black", [ "h0", "v-48", "h134.4" ] ],
+    [ "bargraph1:C1", "pico:GP16", "green", [ "v0", "h96.22", "v336", "h-67.2" ] ],
+    [ "bargraph1:C2", "pico:GP17", "red", [ "h96.22", "v307.2" ] ],
+    [ "bargraph1:C3", "pico:GP18", "green", [ "h96.22", "v278.4" ] ],
+    [ "bargraph1:C4", "pico:GP19", "green", [ "h96.22", "v259.2" ] ],
+    [ "bargraph1:C5", "pico:GP20", "green", [ "h96.22", "v239.99" ] ],
+    [ "bargraph1:C6", "pico:GP21", "green", [ "h96.22", "v-0.01" ] ],
+    [ "bargraph1:C7", "pico:GP22", "green", [ "h96.22", "v-0.01" ] ],
+    [ "bargraph1:C8", "pico:GP26", "green", [ "h96.22", "v-0.01" ] ],
+    [ "bargraph1:C9", "pico:GP27", "green", [ "h96.22", "v-0.01" ] ],
+    [ "bargraph1:C10", "pico:GP28", "green", [ "h96.22", "v-0.01" ] ],
+    [ "bargraph1:A1", "pico:GP2", "green", [ "h-48", "v182.4", "h9.6" ] ],
+    [ "bargraph1:A2", "pico:GP3", "green", [ "h-48", "v192" ] ],
+    [ "bargraph1:A3", "pico:GP4", "green", [ "h-48", "v192" ] ],
+    [ "bargraph1:A4", "pico:GP5", "green", [ "h-48", "v9.6" ] ],
+    [ "bargraph1:A5", "pico:GP6", "green", [ "h-48", "v9.59" ] ],
+    [ "bargraph1:A6", "pico:GP7", "green", [ "h-48", "v-0.01" ] ],
+    [ "bargraph1:A7", "pico:GP8", "green", [ "h-48", "v191.99" ] ],
+    [ "bargraph1:A8", "pico:GP9", "green", [ "h-48", "v-0.01" ] ],
+    [ "bargraph1:A9", "pico:GP10", "green", [ "h-48", "v201.59" ] ],
+    [ "bargraph1:A10", "pico:GP11", "green", [ "h-48", "v201.59" ] ],
+    [ "pico:GND.8", "rtc1:GND", "black", [ "h116.4", "v-115.2" ] ],
+    [ "rtc1:5V", "pico:3V3", "red", [ "h-67.2", "v114.8" ] ],
+    [ "pico:GP1", "rtc1:SCL", "orange", [ "h-28.8", "v-48" ] ],
+    [ "rtc1:SDA", "pico:GP0", "green", [ "h-278.4", "v76.5" ] ],
+    [ "cell1:SCK", "pico:GP12", "green", [ "h38.4", "v56.8" ] ],
+    [ "cell1:DT", "pico:GP13", "green", [ "h76.8", "v95.5", "h-9.6" ] ],
+    [ "cell1:VCC", "pico:VBUS", "red", [ "h-67.2", "v-76.8" ] ]
+  ],
+  "dependencies": {}
+}
